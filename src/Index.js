@@ -83,6 +83,7 @@ function actionPage(){
         max = document.getElementById('max');
     const search = document.querySelector('.search-wrapper_input');
     const searchBtn = document.querySelector('.search-btn');
+    const goods = document.querySelector('.goods');
     discountCheckbox.addEventListener('click', () => {
             actionCards.forEach((card) => {
                 if (discountCheckbox.checked) {
@@ -100,6 +101,8 @@ function actionPage(){
             const price = parseFloat(cardPrice.textContent);
             if ((min.value && price < min.value) || (max.value && price > max.value)) {
                 card.parentNode.remove();
+            } else {
+                goods.appendChild(card.parentNode);
             }
         });
     }
